@@ -6,6 +6,7 @@ import {
   FaTwitter,
   FaDownload,
 } from "react-icons/fa";
+import profileImage from "../../assets/images/my-photo.jpg";
 
 const Hero = () => {
   const containerVariants = {
@@ -158,8 +159,8 @@ const Hero = () => {
               {/* Profile Image */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-primary bg-base-200 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
                 <img
-                  src="/src/assets/images/my-photo.jpg"
-                  alt="Sajib Rahman"
+                  src={profileImage}
+                  alt="Profile"
                   className="w-full h-full  object-cover object-center transition-transform duration-500 hover:scale-105"
                 />
               </div>
