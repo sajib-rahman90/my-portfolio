@@ -124,17 +124,43 @@ const Hero = () => {
           {/* Right Image */}
           <motion.div
             className="flex-1 w-full max-w-md lg:max-w-full flex justify-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, x: 80 }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              y: [0, -12, 0],
+            }}
+            transition={{
+              opacity: { duration: 0.8 },
+              x: { duration: 0.8 },
+              y: {
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            }}
           >
             <div className="relative w-72 h-72 md:w-96 md:h-96">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-3xl opacity-30 animate-pulse"></div>
-              <div className="relative w-full h-full rounded-full border-4 border-primary overflow-hidden bg-base-200 flex items-center justify-center shadow-2xl">
+              {/* Background Glow */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-secondary to-primary blur-3xl opacity-30 animate-pulse"></div>
+
+              {/* Rotating Border */}
+              <motion.div
+                className="absolute inset-0 rounded-full border-[6px] border-primary/30"
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 18,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+
+              {/* Profile Image */}
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-primary bg-base-200 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
                 <img
                   src="/src/assets/images/my-photo.jpg"
-                  alt="Profile"
-                  className="w-full h-full object-cover"
+                  alt="Sajib Rahman"
+                  className="w-full h-full  object-cover object-center transition-transform duration-500 hover:scale-105"
                 />
               </div>
             </div>
