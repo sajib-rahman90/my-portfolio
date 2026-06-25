@@ -1,13 +1,18 @@
-import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
-import toast from 'react-hot-toast';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import {
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaPaperPlane,
+} from "react-icons/fa";
+import toast from "react-hot-toast";
+import { useState } from "react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,11 +24,11 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission delay
     setTimeout(() => {
-      toast.success('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
       setIsSubmitting(false);
     }, 1500);
   };
@@ -31,7 +36,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-base-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,9 +51,8 @@ const Contact = () => {
         </motion.div>
 
         <div className="flex flex-col md:flex-row gap-12 max-w-5xl mx-auto">
-          
           {/* Contact Information */}
-          <motion.div 
+          <motion.div
             className="w-full md:w-1/3 space-y-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,8 +64,8 @@ const Contact = () => {
                 <FaPhoneAlt className="text-xl" />
               </div>
               <div>
-                <h4 className="font-semibold">Phone</h4>
-                <p className="text-base-content/70">+1 (555) 123-4567</p>
+                <h4 className="font-semibold text-base-content">Phone</h4>
+                <p className="text-base-content/70">+8801849490090</p>
               </div>
             </div>
 
@@ -70,8 +74,10 @@ const Contact = () => {
                 <FaEnvelope className="text-xl" />
               </div>
               <div>
-                <h4 className="font-semibold">Email</h4>
-                <p className="text-base-content/70">hello@example.com</p>
+                <h4 className="font-semibold text-base-content">Email</h4>
+                <p className="text-base-content/70">
+                  sajibrahman0090@gmail.com
+                </p>
               </div>
             </div>
 
@@ -80,14 +86,16 @@ const Contact = () => {
                 <FaMapMarkerAlt className="text-xl" />
               </div>
               <div>
-                <h4 className="font-semibold">Location</h4>
-                <p className="text-base-content/70">New York, NY 10012</p>
+                <h4 className="font-semibold text-base-content">Location</h4>
+                <p className="text-base-content/70">
+                  Kallyanpur, Dhaka, Bangladesh
+                </p>
               </div>
             </div>
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div 
+          <motion.div
             className="w-full md:w-2/3"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -96,50 +104,52 @@ const Contact = () => {
           >
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Your Name" 
-                  className="input input-bordered w-full bg-base-200" 
+                  placeholder="Your Name"
+                  className="input input-bordered w-full text-base-content bg-base-200"
                   required
                 />
-                
-                <input 
-                  type="email" 
+
+                <input
+                  type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Your Email" 
-                  className="input input-bordered w-full bg-base-200" 
+                  placeholder="Your Email"
+                  className="input input-bordered w-full text-base-content bg-base-200"
                   required
                 />
               </div>
 
-              <textarea 
+              <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="textarea textarea-bordered w-full h-32 bg-base-200 resize-none" 
+                className="textarea textarea-bordered w-full h-32 bg-base-200 text-base-content resize-none"
                 placeholder="Your Message"
                 required
               ></textarea>
 
-              <button 
-                type="submit" 
-                className={`btn btn-primary px-8 ${isSubmitting ? 'loading' : ''}`}
+              <button
+                type="submit"
+                className={`btn btn-primary px-8 ${isSubmitting ? "loading" : ""}`}
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending...' : (
+                {isSubmitting ? (
+                  "Sending..."
+                ) : (
                   <>
-                    Send Message <FaPaperPlane className="ml-2" />
+                    Send Message{" "}
+                    <FaPaperPlane className="ml-2 text-base-content" />
                   </>
                 )}
               </button>
             </form>
           </motion.div>
-
         </div>
       </div>
     </section>

@@ -1,28 +1,28 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { HiMenu, HiX } from 'react-icons/hi';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { HiMenu, HiX } from "react-icons/hi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const isHome = location.pathname === '/';
+  const isHome = location.pathname === "/";
 
   const navLinks = [
-    { name: 'Home', href: isHome ? '#home' : '/#home' },
-    { name: 'About', href: isHome ? '#about' : '/#about' },
-    { name: 'Skills', href: isHome ? '#skills' : '/#skills' },
-    { name: 'Projects', href: isHome ? '#projects' : '/#projects' },
-    { name: 'Contact', href: isHome ? '#contact' : '/#contact' },
+    { name: "Home", href: isHome ? "#home" : "/#home" },
+    { name: "About", href: isHome ? "#about" : "/#about" },
+    { name: "Skills", href: isHome ? "#skills" : "/#skills" },
+    { name: "Projects", href: isHome ? "#projects" : "/#projects" },
+    { name: "Contact", href: isHome ? "#contact" : "/#contact" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const closeMenu = () => setIsOpen(false);
@@ -31,8 +31,8 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-base-100/80 backdrop-blur-md shadow-sm'
-          : 'bg-transparent'
+          ? "bg-base-100/80 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,7 +40,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="text-2xl font-bold text-primary">
-              Portfolio<span className="text-accent">.</span>
+              Sajib Rahman<span className="text-accent">.</span>
             </Link>
           </div>
 
